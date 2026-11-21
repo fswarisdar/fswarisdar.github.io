@@ -18,9 +18,28 @@ Suggested username if free: `fahadsabah` → **`https://fahadsabah.github.io/`**
 
 Edit `index.html` and replace `YOUR_USERNAME` only if you change repo/links (Scholar/ORCID already set).
 
-## Page contents (updated)
-Research; education; appointments + Program Incharge / FYP manager; full selected publications (PFL core, medical imaging collab, other); teaching courses; service / projects / awards / skills; contact.
+## Page contents
+- `index.html` — photo, research, appointments, selected pubs, teaching, service
+- `publications.html` — year-wise list (auto-synced from Semantic Scholar)
+- `photo.jpg` — profile portrait
+- `sync_publications_ss.py` — rebuild publications from Semantic Scholar author `152567681`
+- `.github/workflows/sync-publications.yml` — weekly + manual sync
+
+## Auto-update publications
+1. Push this repo (already on `fswarisdar.github.io`).
+2. GitHub → **Actions** → enable workflows if prompted.
+3. Run **Sync publications (Semantic Scholar)** once (Actions → workflow → Run workflow), or wait for Monday 06:00 UTC.
+4. Citations on the publications page are **Semantic Scholar** (often lower than Google Scholar). Keep the Scholar link for applications.
+
+Manual local sync:
+```powershell
+cd e:\PythonProjects\JobApplications\github_portfolio
+python sync_publications_ss.py
+git add publications.html index.html ss_meta.json
+git commit -m "chore: sync publications from Semantic Scholar"
+git push
+```
 
 ## Use on applications
 
-Paste the live Pages URL in forms that ask for website / portfolio / GitHub.
+Paste: **https://fswarisdar.github.io/**
